@@ -6,7 +6,7 @@
 
 Для добаления новый команды в список: `index.php command_name {add}`, затем ввести описание команды.
 
-Файл со скписком команд лежит в [data](/app/data/command_list.json)
+Файл со скписком команд будет лежать в папке [data](/app/data/command_list.json)
 
 ---
 
