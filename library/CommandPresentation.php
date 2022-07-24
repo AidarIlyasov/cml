@@ -27,7 +27,7 @@ class CommandPresentation
         $result = PHP_EOL. 'Called command: ' . $name . PHP_EOL . PHP_EOL;
 
         $result .= 'Arguments:' .  PHP_EOL;
-        $result .= $result .= array_key_exists('arguments', $commandList[$name])
+        $result .= array_key_exists('arguments', $commandList[$name])
             ? $this->collectList($commandList[$name]['arguments']) : "\t - no arguments";
 
         $result .= 'Options:' . PHP_EOL;
