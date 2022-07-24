@@ -1,0 +1,1 @@
+{"mkdir":{"name":"mkdir","description":"mkdir command in Linux allows the user to create directories","arguments":[],"options":{"pagination":50,"log_file":["app.log"]}}}

@@ -1,0 +1,17 @@
+{
+    "name": "test/cla",
+    "description": "Test command line library project contains a library and application",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Library\\": "library/"
+        }
+    }
+}
