@@ -2,7 +2,9 @@
 
 namespace Library;
 
-class CommandLineContext
+use Library\ICommandLineContext;
+
+class CommandLineContext implements ICommandLineContext
 {
     private string $path;
     public function __construct()

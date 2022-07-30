@@ -11,11 +11,13 @@ class CommandLineManager
 {
     private string $commandName;
     private array $commandList;
+    private ICommandLineContext $context;
 
-    public function __construct()
+    public function __construct(ICommandLineContext $context)
     {
         try {
-            $this->commandList = (new CommandLineContext())->getCommandList();
+            $this->context = $context;
+            $this->commandList = $context->getCommandList();
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
@@ -26,7 +28,7 @@ class CommandLineManager
         $validator = new CommandLineValidator(); // should be DI
         $presenter = new CommandPresentation();
         $mather    = new CommandLineMather();
-        $creator   = new CommandCreator();
+        $creator   = new CommandCreator($this->context);
 
         try {
             if ($result = $this->checkCommandLineHasSpecificCases($validator, $presenter, $consoleArguments)) {

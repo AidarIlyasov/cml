@@ -2,13 +2,12 @@
 namespace App;
 
 use Library\CommandLineManager;
+use Library\CommandLineContext;
 
 class App
 {
-    private CommandLineManager $commandLineManager;
-
     public function __construct(array $consoleArguments = [])
     {
-        echo (new CommandLineManager)->run($consoleArguments);
+        echo (new CommandLineManager(new CommandLineContext()))->run($consoleArguments);
     }
 }

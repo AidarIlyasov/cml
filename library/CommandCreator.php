@@ -8,11 +8,13 @@ use Library\Exceptions\InvalidCommandException;
 class CommandCreator
 {
     private array $commandList;
+    private ICommandLineContext $context;
 
-    public function __construct()
+    public function __construct(ICommandLineContext $context)
     {
         try {
-            $this->commandList = (new CommandLineContext())->getCommandList();
+            $this->context = $context;
+            $this->commandList = $context->getCommandList();
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
@@ -37,7 +39,7 @@ class CommandCreator
     {
         $this->commandList[$name] = ['description' => $description];
 
-        (new CommandLineContext())->setCommandList(json_encode($this->commandList));
+        $this->context->setCommandList(json_encode($this->commandList));
 
         return true;
     }
